@@ -1,0 +1,52 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row pb-5">
+    <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+
+      <h1 class="pt-5 pb-2">List of Students</h1>
+
+      <p class="lead alert alert-warning">This is a list of all the Student of the
+			<strong>{{ sem }}</strong> sem in our Database.</p>
+
+	  <p class="ml-4"><a href="{{ url_for('index') }}">Return to the index.</a></p>
+
+		<table class="table">
+			<tr>
+				<th>usn</th>
+				<th>name</th>
+				<th>sem</th>
+				<th>branch</th>
+			</tr>
+
+			<!-- here is a for-loop to give us all the socks -->
+			{% for students in new %}
+			<tr>
+                <td>{{ students.usn }}</td>
+				<td>{{ students.name }}</td>
+				<td>{{ students.sem }}</td>
+			    <td>{{ students.branch }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}

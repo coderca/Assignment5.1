@@ -1,0 +1,39 @@
+{% extends 'bootstrap/base.html' %}
+
+
+{% block style %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+
+{% block title %}
+Student Database
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+
+      <h1 class="pt-5 pb-2">Welcome to Student Database</h1>
+
+      <p class="lead">This is the index page for Student Database</p>
+
+      <ul>
+          {% for s in sem %}
+          <li><a href="{{ url_for( 'inventory', sem=s.sem ) }}">{{ s.sem }}</a></li>
+          {% endfor %}
+      </ul>
+
+	  <!-- links -->
+	  <p>You can <a href="{{ url_for('add_record') }}">add another Student</a>.</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
